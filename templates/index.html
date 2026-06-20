@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twitter Sentiment Analysis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-lg">
+
+    <h1 class="text-2xl font-bold text-center mb-6">
+      Twitter Sentiment Analyzer
+    </h1>
+
+    <form method="POST">
+      <textarea
+        name="tweet"
+        rows="4"
+        class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Enter a tweet...">{{ tweet }}</textarea>
+
+      <button
+        type="submit"
+        class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+        Analyze Sentiment
+      </button>
+    </form>
+
+    {% if result %}
+    <div class="mt-6 text-center text-xl font-semibold">
+      Result:
+      <span class="{% if 'Positive' in result %}text-green-600{% else %}text-red-600{% endif %}">
+        {{ result }}
+      </span>
+    </div>
+    {% endif %}
+
+  </div>
+
+</body>
+</html>
